@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Suku Cadang Tersedia</title>
+    <link rel="icon" type="image/x-icon" href="../icons/engine.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(120deg, rgb(29, 55, 60), Black);
+      }
+      nav {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        position: sticky;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 5px 0;
+        background-color: rgba(26, 75, 94, 0);
+        backdrop-filter: blur(2px);
+        transition: top 0.4s ease;
+        z-index: 9;
+      }
+      .left-nav,
+      .right-nav a {
+        color: rgb(239, 239, 239);
+        padding: 8px 10px;
+        margin: 0 5px;
+        text-decoration: none;
+        transition: 0.2s;
+        font-size: 15px;
+        font-weight: 700;
+        display: inline-block;
+      }
+      .right-nav a {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.589);
+      }
+      .right-nav a::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: white;
+        width: 0;
+        transition: width 0.3s;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.656);
+      }
+      .right-nav a:hover::after {
+        width: 100%;
+      }
+      .right-nav a:last-child {
+        margin-right: 4px;
+      }
+      nav a.left-nav:first-child {
+        text-shadow: none;
+        border-radius: unset;
+        padding: 0;
+      }
+      nav a i {
+        background-image: var(--gradient);
+        animation: icons 5s infinite;
+      }
+      @media screen and (max-width: 800px) {
+        nav {
+          background: linear-gradient(
+            10deg,
+            rgba(0, 255, 85, 0.3),
+            rgba(0, 200, 255, 0.3)
+          );
+          backdrop-filter: blur(3px);
+        }
+        .burger {
+          display: inline-block;
+          cursor: pointer;
+        }
+        .burger .bar1,
+        .bar2,
+        .bar3 {
+          width: 35px;
+          height: 5px;
+          background-color: rgb(246, 246, 246);
+          margin: 6px 0;
+          transition: 0.4s;
+        }
+        .change .bar1 {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .bar2 {
+          opacity: 0;
+        }
+        .change .bar3 {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+
+        .right-nav {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          background-image: linear-gradient(
+            20deg,
+            rgb(0, 0, 255, 0.5),
+            rgb(255, 0, 0, 0.5)
+          );
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+        .right-nav a {
+          display: inline-block;
+          padding: 10px 10px;
+          width: 100%;
+          border-bottom: 1px solid;
+        }
+        .right-nav a:last-child {
+          border-bottom: none;
+        }
+        .right-nav a:hover {
+          background-color: unset;
+          border-radius: unset;
+          color: white;
+        }
+      }
+      @keyframes icons {
+        0% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+        50% {
+          background-image: var(--gradient);
+          background-position: 100% 0;
+        }
+        100% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav>
+      <a href="../index.html" class="left-nav"
+        ><i
+          class="fa fa-home"
+          style="
+            font-size: 38px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            --gradient: linear-gradient(60deg, red, yellow, green, blue);
+            color: transparent;
+            background-size: 600%;
+          "
+        ></i
+      ></a>
+      <div class="burger" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="right-nav">
+        <a href="../index.html#pelayanan">Pelayanan</a>
+        <a href="../index.html#harga-penjualan">Harga</a>
+        <a href="../index.html#penjualan">Penjualan</a>
+        <a href="../index.html#tentang">Tentang</a>
+        <a href="../index.html#kontak">Kontak</a>
+      </div>
+    </nav>
+    <!-- nav -->
+
+    <h1 class="title" style="font-weight: 500">Suku Cadang Tersedia</h1>
+    <div class="slider" x-data="{start: true, end: false}">
+      <div
+        class="slider__content"
+        x-ref="slider"
+        x-on:scroll.debounce="$refs.slider.scrollLeft == 0 ? start = true : start = false; Math.abs(($refs.slider.scrollWidth - $refs.slider.offsetWidth) - $refs.slider.scrollLeft) < 5 ? end = true : end = false;"
+      >
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/filter_udara.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Filter Udara</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/kampas_kopling.jpeg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Kampas Kopling</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/dis_break.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Break Disc</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/aki_yuasa.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Aki Kering</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/dongkrak_hidrolik.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Dongkrak Hidrolik</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/jackstand.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Jack Stand</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/oli_mesin.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Oli Mesin</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/air_radiator.jpeg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Air Radiator</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/piston_ring.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Piston & Ring</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img class="slider__image" src="../images/lampu.jpg" alt="Image" />
+          <div class="slider__info">
+            <h2>Lampu Projector</h2>
+          </div>
+        </div>
+        <div class="slider__item">
+          <img
+            class="slider__image"
+            src="../images/ban_serep.jpg"
+            alt="Image"
+          />
+          <div class="slider__info">
+            <h2>Ban Serep</h2>
+          </div>
+        </div>
+      </div>
+      <div class="slider__nav">
+        <button
+          class="slider__nav__button"
+          x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth * -1, behavior: 'smooth'});"
+          x-bind:class="start ? '' : 'slider__nav__button--active'"
+        >
+          Previous
+        </button>
+        <button
+          class="slider__nav__button"
+          x-on:click="$refs.slider.scrollBy({left: $refs.slider.offsetWidth, behavior: 'smooth'});"
+          x-bind:class="end ? '' : 'slider__nav__button--active'"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+
+    <!-- script -->
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("change");
+      }
+      let acc = document.getElementsByClassName("burger");
+      for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          let panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+    <!-- script -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.2/cdn.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

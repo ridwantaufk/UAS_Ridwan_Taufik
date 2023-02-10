@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pelayanan Prioritas</title>
+    <link rel="icon" type="image/x-icon" href="../icons/engine.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/ede4348c88.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(120deg, rgb(29, 55, 60), Black);
+      }
+      nav {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        position: sticky;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 5px 0;
+        background-color: rgba(26, 75, 94, 0);
+        backdrop-filter: blur(2px);
+        transition: top 0.4s ease;
+        z-index: 9;
+      }
+      .left-nav,
+      .right-nav a {
+        color: rgb(239, 239, 239);
+        padding: 8px 10px;
+        margin: 0 5px;
+        text-decoration: none;
+        transition: 0.2s;
+        font-size: 15px;
+        font-weight: 700;
+        display: inline-block;
+      }
+      .right-nav a {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.589);
+      }
+      .right-nav a::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: white;
+        width: 0;
+        transition: width 0.3s;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.656);
+      }
+      .right-nav a:hover::after {
+        width: 100%;
+      }
+      .right-nav a:last-child {
+        margin-right: 5px;
+      }
+      nav a.left-nav:first-child {
+        text-shadow: none;
+        border-radius: unset;
+        padding: 0;
+      }
+      nav a i {
+        background-image: var(--gradient);
+        animation: icons 5s infinite;
+      }
+      @media screen and (max-width: 800px) {
+        nav {
+          background: linear-gradient(
+            10deg,
+            rgba(0, 255, 85, 0.3),
+            rgba(0, 200, 255, 0.3)
+          );
+          backdrop-filter: blur(3px);
+        }
+        .burger {
+          display: inline-block;
+          cursor: pointer;
+        }
+        .burger .bar1,
+        .bar2,
+        .bar3 {
+          width: 35px;
+          height: 5px;
+          background-color: rgb(246, 246, 246);
+          margin: 6px 0;
+          transition: 0.4s;
+        }
+        .change .bar1 {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .bar2 {
+          opacity: 0;
+        }
+        .change .bar3 {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+
+        .right-nav {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          background-image: linear-gradient(
+            20deg,
+            rgb(0, 0, 255, 0.5),
+            rgb(255, 0, 0, 0.5)
+          );
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+        .right-nav a {
+          display: inline-block;
+          padding: 10px 10px;
+          width: 100%;
+          border-bottom: 1px solid;
+        }
+        .right-nav a:last-child {
+          border-bottom: none;
+        }
+        .right-nav a:hover {
+          background-color: unset;
+          border-radius: unset;
+          color: white;
+        }
+      }
+      @keyframes icons {
+        0% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+        50% {
+          background-image: var(--gradient);
+          background-position: 100% 0;
+        }
+        100% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav>
+      <a href="../index.html" class="left-nav"
+        ><i
+          class="fa fa-home"
+          style="
+            font-size: 38px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            --gradient: linear-gradient(60deg, red, yellow, green, blue);
+            color: transparent;
+            background-size: 600%;
+          "
+        ></i
+      ></a>
+      <div class="burger" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="right-nav">
+        <a href="../index.html#pelayanan">Pelayanan</a>
+        <a href="../index.html#harga-penjualan">Harga</a>
+        <a href="../index.html#penjualan">Penjualan</a>
+        <a href="../index.html#tentang">Tentang</a>
+        <a href="../index.html#kontak">Kontak</a>
+      </div>
+    </nav>
+    <!-- nav -->
+
+    <div class="container">
+      <h1>Pelayanan Prioritas</h1>
+      <div class="card-container">
+        <div class="card-wrapper">
+          <div class="card light">
+            <div class="text-overlay">
+              <h2>Standard Services</h2>
+              <div class="price">Rp 300RB<small>/mobil</small></div>
+              <div class="details-text">
+                <span>Waktu : 2-5 jam</span>
+                <span>Dikerjakan 1 orang handal</span>
+                <span>(Ditempat/Pemanggilan)</span>
+              </div>
+            </div>
+            <div class="purchase-button-container">
+              <h2 class="back-h2">Pelayanan Waktu Standar</h2>
+              <i class="fa-solid fa-person"></i>
+              <div class="purchase-button light" onclick="whatsapp()">
+                Booking
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="card dark">
+            <div class="text-overlay">
+              <h2>Special Services</h2>
+              <div class="price">Rp 1,5JT</div>
+              <div class="details-text">
+                <span>Waktu : 1-2 jam</span>
+                <span>Kurang dari 3 mobil</span>
+                <span>Dikerjakan 3 orang handal</span>
+                <span>(Ditempat/Pemanggilan)</span>
+              </div>
+            </div>
+            <div class="purchase-button-container">
+              <h2 class="back-h2">Pelayanan Waktu Cepat</h2>
+              <i class="fa-solid fa-people-group"></i>
+              <div class="purchase-button dark" onclick="whatsapp()">
+                Booking
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-wrapper">
+          <div class="card light">
+            <div class="text-overlay">
+              <h2>Urgensi Services</h2>
+              <div class="price">Rp 2,5JT</div>
+              <div class="details-text">
+                <span>Waktu : maks. 5 jam</span>
+                <span>Dikerjakan lebih dari 3 teknisi</span>
+                <span>Perbaikan dan/atau towing</span>
+                <span>(Pemanggilan)</span>
+              </div>
+            </div>
+            <div class="purchase-button-container">
+              <h2 class="back-h2">Sangat Urgensi</h2>
+              <i class="fa-solid fa-building"></i>
+              <div
+                class="purchase-button light"
+                onclick="window.open('https://wa.me/6281312025217')"
+              >
+                Panggil
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("change");
+      }
+      let acc = document.getElementsByClassName("burger");
+      for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          let panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+
+      // konfirmasi whatsapp
+      function whatsapp() {
+        let confir = confirm("lanjutkan OK via whatsapp");
+        if (confir == true) {
+          window.open("https://wa.me/6281312025217");
+        }
+      }
+    </script>
+  </body>
+</html>

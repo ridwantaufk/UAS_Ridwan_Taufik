@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jasa Service Mobil</title>
+    <link rel="icon" type="image/x-icon" href="icons/engine.png" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="left-nav"
+        ><i
+          class="fa fa-home"
+          style="
+            font-size: 38px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            --gradient: linear-gradient(60deg, red, yellow, green, blue);
+            color: transparent;
+            background-size: 600%;
+          "
+        ></i
+      ></a>
+      <div class="burger" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="right-nav">
+        <a href="#pelayanan">Pelayanan</a>
+        <a href="#harga-penjualan">Harga</a>
+        <a href="#penjualan">Penjualan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </nav>
+    <!-- NAV -->
+
+    <!-- sound -->
+    <audio
+      src="sound/spongebob-sound.mp3"
+      autoplay
+      loop
+      style="display: none"
+    ></audio>
+    <!-- sound -->
+
+    <!-- CONTAINER -->
+    <div class="container">
+      <!-- BOX 1 -->
+      <div class="section box1">
+        <div class="front-content">
+          <div class="left-side">
+            <ul>
+              <li>
+                <a href="#" onclick="whatsapp()" title="Service Panggilan"
+                  ><i
+                    class="fa fa-ambulance"
+                    style="
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -moz-background-clip: text;
+                      -o-background-clip: text;
+                      -ms-background-clip: text;
+                      background-image: linear-gradient(
+                        60deg,
+                        #ff0000,
+                        #ff7300,
+                        #fffb00,
+                        #48ff00,
+                        #00ffd5,
+                        #4262ff
+                      );
+                      --gradient: linear-gradient(
+                        60deg,
+                        #ff0000,
+                        #ff7300,
+                        #fffb00,
+                        #48ff00,
+                        #00ffd5,
+                        #4262ff
+                      );
+                      color: transparent;
+                      background-size: 700%;
+                    "
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="visa_pembayaran/pembayaran.html"
+                  onclick="hide2()"
+                  title="Pembayaran"
+                  ><i
+                    class="fa fa-cc-visa"
+                    style="
+                      font-size: 28px;
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -moz-background-clip: text;
+                      -o-background-clip: text;
+                      -ms-background-clip: text;
+                      background-image: linear-gradient(
+                        100deg,
+                        #ffffff,
+                        rgb(0, 0, 255),
+                        rgb(255, 0, 0)
+                      );
+                      --gradient: linear-gradient(
+                        100deg,
+                        #ffffff,
+                        rgb(0, 0, 255),
+                        rgb(255, 0, 0)
+                      );
+                      color: transparent;
+                      background-size: 200%;
+                    "
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a href="login_signup/login_signup.html" title="Login"
+                  ><i
+                    class="fa fa-file-text"
+                    style="
+                      font-size: 30px;
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -moz-background-clip: text;
+                      -o-background-clip: text;
+                      -ms-background-clip: text;
+                      background-image: linear-gradient(
+                        60deg,
+                        #ffffff,
+                        rgb(0, 136, 255),
+                        rgb(0, 136, 255)
+                      );
+                      --gradient: linear-gradient(
+                        60deg,
+                        #ffffff,
+                        rgb(0, 136, 255),
+                        rgb(0, 136, 255)
+                      );
+                      color: transparent;
+                      background-size: 190%;
+                    "
+                  ></i
+                ></a>
+              </li>
+              <li>
+                <a href="harga_pelayanan/harga.html" title="Harga Pelayanan"
+                  ><i
+                    class="fa fa-tags"
+                    style="
+                      font-size: 32px;
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -moz-background-clip: text;
+                      -o-background-clip: text;
+                      -ms-background-clip: text;
+                      background-image: linear-gradient(
+                        80deg,
+                        rgb(255, 231, 47),
+                        rgb(0, 55, 219),
+                        red
+                      );
+                      --gradient: linear-gradient(
+                        80deg,
+                        rgb(255, 231, 47),
+                        rgb(0, 55, 219),
+                        red
+                      );
+                      color: transparent;
+                      background-size: 200%;
+                    "
+                  ></i>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="suku_cadang/suku_cadang.html"
+                  title="Belanja Suku Cadang"
+                  ><i
+                    class="fa fa-cart-plus"
+                    style="
+                      font-size: 40px;
+                      background-clip: text;
+                      -webkit-background-clip: text;
+                      -moz-background-clip: text;
+                      -o-background-clip: text;
+                      -ms-background-clip: text;
+                      background-image: linear-gradient(
+                        60deg,
+                        #a2fffc,
+                        rgb(234, 0, 255),
+                        rgb(255, 0, 0),
+                        red
+                      );
+                      --gradient: linear-gradient(
+                        60deg,
+                        #a2fffc,
+                        rgb(234, 0, 255),
+                        rgb(255, 0, 0),
+                        red
+                      );
+                      color: transparent;
+                      background-size: 190%;
+                    "
+                  ></i
+                ></a>
+              </li>
+            </ul>
+            <div class="prolog">
+              <p id="prolog">
+                <b>Hai</b> sobat otomotif, apakabar kalian ??<br />
+                gimana apakah mobil kalian sudah terawat dengan baik ?<br /><br />
+                Jangan lupa ya sobat driver untuk selalu memperhatikan kesehatan
+                kendaraan kalian!!!
+              </p>
+              <p id="service">
+                Buka layanan hari :<br /><br />
+                Senin - Jum'at pukul 08.00 - 16.30 WIB. <br />
+                Sabtu pukul 09.00 - 12.00 WIB.
+              </p>
+              <p id="pembayaran">
+                Pembayaran : <br /><br />
+                23476152731 BCA a/n Ridwan Taufik <br /><br />
+                98374528334 Mandiri a/n Ridwan Taufik <br /><br />
+                01729817883 BRI a/n Ridwan Taufik
+              </p>
+              <p id="daftar">
+                ~ Service Kendaraan Roda Empat dari berbagai merek dan tipe,
+                toyota, mitsubishi, daihatsu, honda, hyundai, chevrolet, dll.
+                <br />
+                ~ Penjualan sparepart yang dapat langsung dipasang atau hanya
+                membeli.
+                <br />
+                ~ Layanan panggilan yang dapat dikerjakan di tempat anda berada.
+                <br />
+                ~ Jasa service saat bepergian jauh.
+              </p>
+              <p id="harga">
+                Banyak Promo yang kami berikan untuk sobat pemilik kendaraan.
+                Ikuti terus kami dengan follow instagram dan subscribe youtube
+                kami yang berada di navigasi kontak.
+              </p>
+              <p id="belanja">
+                Sparepart kami terbagi menjadi dua, yakni dari produksi resmi
+                yang tentunya original dan yang biasa. Klik navigasi penjualan
+                untuk lebih lengkap.
+              </p>
+            </div>
+            <div class="box-wrap">
+              <div class="first-box">
+                Bagi sobat yang sayang dengan kendaraannya, kami punya
+                <em><b>treatment</b></em> nih supaya mobil sobat selalu prima
+                dan penggunaan mesin tetap awet untuk jangka panjang !!
+              </div>
+              <div class="second-box">
+                Dengan penanganan yang handal dan jam terbang yang mumpuni, kami
+                siap merawat mobil kesayangan kalian dan memperbaiki hingga
+                mesin dalam keadaan sehat
+                <span
+                  style="display: inline-block; bottom: 44px; font-size: 25px"
+                  >&#128515;</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="slideshow-container">
+              <div class="mySlides fade">
+                <img src="images/mekanik.jpg" />
+                <div class="text">Mekanik Handal</div>
+              </div>
+
+              <div class="mySlides fade">
+                <img src="images/red-car.jpg" />
+                <div class="text">Performa</div>
+              </div>
+
+              <div class="mySlides fade">
+                <img src="images/turun-mesin.jpg" />
+                <div class="text">Turun Mesin</div>
+              </div>
+
+              <div class="mySlides fade">
+                <img src="images/maintenance.jpg" />
+                <div class="text">Maintenance</div>
+              </div>
+            </div>
+            <br />
+
+            <div id="dot" style="text-align: center">
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- BOX 1 -->
+
+      <!-- BOX 2 -->
+      <div class="section box2" id="pelayanan">
+        <h1>- Pelayanan -</h1>
+        <div class="box2-content">
+          <figure>
+            <img src="images/cek-mesin.jpg" alt="Pengecekan" />
+            <figcaption>
+              <ul>
+                Paket 1 :
+                <li>Pengecekan mesin</li>
+                <li>Pengecekan kelistrikan</li>
+                <li>Pengecekan sistem bahan bakar</li>
+                <li>Pengecekan kaki-kaki</li>
+                <li>Pengecekan chasis</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/ganti-oli.jpg" alt="Ganti Oli" />
+            <figcaption>
+              <ul>
+                Paket 2 :
+                <li>Tes kebocoran radiator + ganti radiator coolant</li>
+                <li>Ganti oli mesin, gardan dan/atau transmisi</li>
+                <li>Ganti fuel pump</li>
+                <li>Cek whipper + ganti air whipper</li>
+                <li>
+                  Bersihkan saringan udara, filter AC, dan isi nitrogen ban
+                </li>
+                <li>Ganti minyak rem</li>
+                <li>
+                  cek kondisi sistem bahan bakar & penggantian fuel filter
+                </li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/kaki-kaki-roda.jpg" alt="Chasis dan Roda" />
+            <figcaption>
+              <ul>
+                Paket 3 :
+                <li>Ganti kampas rem</li>
+                <li>Balancing & spooring</li>
+                <li>Cek kondisi shock breaker</li>
+                <li>Cek kondisi piringan/tromol & kaliper rem</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/kelistrikan.jpg" alt="" />
+            <figcaption>
+              <ul>
+                Paket 4 :
+                <li>Cek kondisi batre</li>
+                <li>Ganti busi</li>
+                <li>Bersihkan throttle body</li>
+                <li>Bersihkan ruang silinder</li>
+                <li>Ganti oli power steering</li>
+                <li>Ganti lampu-lampu</li>
+                <li>Cek sensor-sensor</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/dashbor.jpg" alt="" />
+            <figcaption>
+              <ul>
+                Paket 5 :
+                <li>Ganti airbag</li>
+                <li>Cek fungsi-fungsi interior</li>
+                <li>Cek dashbor</li>
+                <li>Cek fungsi tombol-tombol</li>
+              </ul>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="images/overhaul.jpg" alt="" />
+            <figcaption style="height: 295px">
+              <ul>
+                Paket 6 :
+                <li>Overhaul</li>
+                <li>Pembersihan mesin</li>
+                <li>Penggantian komponen mesin</li>
+              </ul>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+      <!-- BOX 2 -->
+
+      <!-- BOX 3 -->
+      <div class="section box3" id="harga-penjualan">
+        <h1>Pilih Paket :</h1>
+        <ul>
+          <li>
+            <a class="button-1" href="#box-paket1">paket 1</a>
+          </li>
+          <li>
+            <a class="button-2" href="#box-paket2">paket 2</a>
+          </li>
+          <li>
+            <a class="button-3" href="#box-paket3">paket 3</a>
+          </li>
+          <li>
+            <a class="button-4" href="#box-paket4">paket 4</a>
+          </li>
+          <li>
+            <a class="button-5" href="#box-paket5">paket 5</a>
+          </li>
+          <li>
+            <a class="button-6" href="#box-paket6">paket 6</a>
+          </li>
+        </ul>
+        <div class="box-paket">
+          <div class="box-paket-1" id="box-paket1">
+            <div class="paket-1"><h2>PAKET 1</h2></div>
+            <div class="harga-paket">
+              <div class="content-paket">
+                <h3>Paket Hemat</h3>
+                <p>
+                  Kami akan mengecek, memperbaiki secara ringan dan mencari
+                  komponen yang sebaiknya perlu diganti untuk diperbaiki lebih
+                  lanjut.
+                </p>
+              </div>
+              <span><small>Rp.</small>150<sub>rb</sub></span>
+            </div>
+          </div>
+          <div class="box-paket-1" id="box-paket2">
+            <div class="paket-1"><h2>PAKET 2</h2></div>
+            <div class="harga-paket">
+              <div class="content-paket">
+                <h3>Paket Standar</h3>
+                <p>
+                  Service berkala pada umumnya yang harus diperhatikan dengan
+                  KM(Kilo Meter) kelipatan 10.000.
+                </p>
+              </div>
+              <span><small>Rp.</small>850<sub class="sub-rb">rb</sub></span>
+            </div>
+          </div>
+          <div class="box-paket-1" id="box-paket3">
+            <div class="paket-1"><h2>PAKET 3</h2></div>
+            <div class="harga-paket">
+              <div class="content-paket">
+                <h3>Paket Kaki-Kaki & Roda</h3>
+                <p>
+                  Pengecekan bagian kaki-kaki mulai dari kampas rem, kaliper,
+                  brake disc, shock breaker hingga ban.
+                </p>
+              </div>
+              <span class="kotak-span"
+                ><small>Rp.</small>2<sub class="sub-jt">jt</sub></span
+              >
+            </div>
+          </div>
+          <div class="box-paket-1" id="box-paket4">
+            <div class="paket-1"><h2>PAKET 4</h2></div>
+            <div class="harga-paket">
+              <div class="content-paket">
+                <h3>Paket Spesial</h3>
+                <p>
+                  Perbaikan dan penggantian komponen secara serentak tanpa
+                  khawatir lagi mengenai kenyamanan dan performa dari mobil
+                  anda.
+                </p>
+              </div>
+              <span class="kotak-span"><small>Rp.</small>2,5<sub>jt</sub></span>
+            </div>
+          </div>
+          <div class="box-paket-1" id="box-paket5">
+            <div class="paket-1"><h2>PAKET 5</h2></div>
+            <div class="harga-paket">
+              <div class="content-paket">
+                <h3>Paket Interior</h3>
+                <p>
+                  Semua bagian interior akan dicek dan diperbaiki mulai fungsi
+                  tombol, airbag hingga kelistrikannya.
+                </p>
+              </div>
+              <span class="kotak-span"><small>Rp.</small>1,5<sub>jt</sub></span>
+            </div>
+          </div>
+          <div class="box-paket-1" id="box-paket6">
+            <div class="paket-1"><h2>PAKET 6</h2></div>
+            <div class="harga-paket paket-6">
+              <div class="content-paket">
+                <h3>Paket Perbaikan Berat</h3>
+                <p>
+                  Perbaikan ini meliputi perbaikan skala besar. Akan dibongkar
+                  dan diturunkan mesin guna pengecekan sekaligus perbaikan
+                  secara signifikan, juga akan dibersihkan semua bagian mesin
+                  beserta komponen yang masih dalam keadaan baik.
+                </p>
+              </div>
+              <span class="kotak-span"><small>Rp.</small>6,5<sub>jt</sub></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- BOX 3 -->
+
+      <!-- BOX 4 -->
+      <div class="section box4" id="penjualan">
+        <h1>Penjualan</h1>
+        <div class="onderdil-choice">
+          <div class="shadow"></div>
+          <div class="shadow"></div>
+          <div class="img">
+            <a id="slideback"
+              ><i
+                class="fa fa-angle-double-left"
+                style="
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  background-image: linear-gradient(
+                    60deg,
+                    red,
+                    blue,
+                    yellow,
+                    red
+                  );
+                  --glow: linear-gradient(60deg, red, blue, yellow, red);
+                  background-size: 500%;
+                  color: transparent;
+                "
+              ></i
+            ></a>
+          </div>
+          <div class="scroll-onderdil" id="container">
+            <div class="onderdil">
+              <div class="pil-awal">
+                <img src="images/oli.jpg" alt="oli" />
+                <p>Oli Mesin Mobil Shell HX6 SAE 10W-40 Kemasan 4 Liter</p>
+                <div class="price">Rp 145.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/filter-oli.jpg" alt="filter oli" />
+                <p>Filter Oli untuk Toyota Avanza, Rush, Agya, Calya</p>
+                <div class="price">Rp 35.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/kampas-rem.jpg" alt="kampas rem" />
+                <p>
+                  Kampas Rem Depan Avanza-Xenia-Terios-Rush Toyota/Daihatsu ORI
+                  04465-YZZR8
+                </p>
+                <div class="price">Rp 130.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/minyak-rem.jpg" alt="minyak rem" />
+                <p>Minyak Rem Brake Fluid Toyota DOT3- ORIGINAL toyota</p>
+                <div class="price">Rp 30.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/aki.jpg" alt="minyak rem" />
+                <p>GS ASTRA AKI Mobil Hybrid</p>
+                <div class="price">Rp 700.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/air-radiator.jpg" alt="minyak rem" />
+                <p>SEIKEN Radiator Coolant 30% Green 4lt</p>
+                <div class="price">Rp 90.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/piston.jpg" alt="minyak rem" />
+                <p>Seher Piston Toyota Kijang 1.5 5K</p>
+                <div class="price">Rp 550.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/timing-chain.jpg" alt="minyak rem" />
+                <p>
+                  90 Links Timing Chain For Gy6 125cc 150cc 152qmi 157qmj Engine
+                </p>
+                <div class="price">Rp 250.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/pinion.jpg" alt="minyak rem" />
+                <p>
+                  Speed Ratio 7x41 NPR Crown Wheel and Pinion Gear for ISUZU
+                </p>
+                <div class="price">Rp 1.455.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/tierod.jpg" alt="minyak rem" />
+                <p>
+                  Steering Parts Tie Rod End (45046-39335) for Toyota Land
+                  Curuiser Prado Hilux
+                </p>
+                <div class="price">Rp 340.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/lampu-only.jpg" alt="minyak rem" />
+                <p>
+                  Lampu Depan Halogen Putih Mobil H7, Bohlam Lampu Cahaya 12V
+                  55W 4300K 2 Buah
+                </p>
+                <div class="price">Rp 45.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/lampu.jpg" alt="minyak rem" />
+                <p>
+                  Head Lamp Toyota Vios 2007-2013 Starline - Led Projector Black
+                  Housing
+                </p>
+                <div class="price">Rp 3.250.000,00</div>
+              </div>
+              <div class="pil-awal">
+                <img src="images/saringan-udara.jpg" alt="minyak rem" />
+                <p>monotaro Air Filter NA (Filter Udara) NA-23W 1pc</p>
+                <div class="price">Rp 187.000,00</div>
+              </div>
+            </div>
+          </div>
+          <div class="img">
+            <a id="slide"
+              ><i
+                class="fa fa-angle-double-right"
+                style="
+                  background-clip: text;
+                  -webkit-background-clip: text;
+                  background-image: linear-gradient(
+                    60deg,
+                    red,
+                    blue,
+                    yellow,
+                    red
+                  );
+                  --glow: linear-gradient(60deg, red, blue, yellow, red);
+                  background-size: 500%;
+                  color: transparent;
+                "
+              ></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <!-- BOX 4 -->
+
+      <!-- BOX 5 -->
+      <div class="section box5" id="tentang">
+        <h1>Tentang</h1>
+        <p class="paraf-awal">
+          Kami adalah perusahaan perorangan yang dipimpin oleh Ridwan Taufik
+          sebagai <b>CEO</b> sekaligus <em><b>founder</b></em
+          >.
+        </p>
+        <p>
+          Tahun 2017 kami mengikuti perkembangan dunia otomotif yang pada
+          akhirnya cikal bakal awal mula perintisan membuka jasa
+          <em>service</em>
+        </p>
+        <p>
+          Tahun 2019 kami sedang dalam tahap berkembang pesat yang dimana banyak
+          dari para <em>customer</em> membutuhkan layanan kami.
+        </p>
+        <p>
+          Tahun 2022 kami memiliki 2 cabang tempat layanan <em>service</em> yang
+          terletak di jakarta dan bandung.
+        </p>
+      </div>
+      <!-- BOX 5 -->
+
+      <!-- BOX 6 -->
+      <div class="section box6" id="kontak">
+        <h1>Kontak</h1>
+        <div class="box-contact">
+          <div class="sosmed">
+            <a href="https://instagram.com/ridwantaufk" target="_blank">
+              <img src="icons/instagram.png" alt="instagram" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/ridwan-taufik-b3624325a/"
+              target="_blank"
+            >
+              <img src="icons/linkedin.png" alt="linkedin" />
+            </a>
+            <a href="https://www.facebook.com/ridwan98taufik" target="_blank">
+              <img src="icons/facebook.png" alt="facebook" />
+            </a>
+            <a href="https://twitter.com/Ridwan98taufik" target="_blank">
+              <img src="icons/twitter.png" alt="twitter"
+            /></a>
+            <a
+              href="https://www.youtube.com/channel/UCUVYPyDQ5b6sfpmC-3cpXJA"
+              target="_blank"
+            >
+              <img src="icons/youtube.png" alt="instagram" />
+            </a>
+          </div>
+          <div class="contact">
+            <a href="https://wa.me/6281312025217" target="_blank"
+              >+62 813 120 252 17</a
+            >
+          </div>
+        </div>
+      </div>
+      <!-- BOX 6 -->
+    </div>
+    <!-- CONTAINER-->
+
+    <!-- FOOTER -->
+    <footer>
+      Copyright - 2022
+      <a href="mailto:ridwan1998taufik@gmail.com">ridwan1998taufik@gmail.com</a>
+    </footer>
+    <!-- FOOTER -->
+
+    <!-- SCRIPT -->
+    <script src="js/main.js"></script>
+    <!-- SCRIPT -->
+  </body>
+</html>

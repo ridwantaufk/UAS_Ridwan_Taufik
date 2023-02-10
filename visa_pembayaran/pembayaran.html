@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pembayaran</title>
+    <link rel="icon" type="image/x-icon" href="../icons/engine.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        background: linear-gradient(120deg, rgb(29, 55, 60), Black);
+      }
+      nav {
+        display: flex;
+        position: sticky;
+        top: 0;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+        padding: 5px 0;
+        background-color: rgba(26, 75, 94, 0);
+        backdrop-filter: blur(2px);
+        transition: top 0.4s ease;
+        z-index: 9;
+      }
+      .left-nav,
+      .right-nav a {
+        color: rgb(239, 239, 239);
+        padding: 8px 10px;
+        margin: 0 5px;
+        text-decoration: none;
+        transition: 0.2s;
+        font-size: 16px;
+        font-weight: 700;
+        display: inline-block;
+      }
+      .right-nav a {
+        text-shadow: 0 1px 1px rgba(0, 0, 0, 0.589);
+      }
+      .right-nav a::after {
+        content: "";
+        display: block;
+        margin-top: 2px;
+        height: 2px;
+        background: white;
+        width: 0;
+        transition: width 0.3s;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.656);
+      }
+      .right-nav a:hover::after {
+        width: 100%;
+      }
+      .right-nav a:last-child {
+        margin-right: 4px;
+      }
+      nav a.left-nav:first-child {
+        text-shadow: none;
+        border-radius: unset;
+        padding: 0;
+      }
+      nav a i {
+        background-image: var(--gradient);
+        animation: icons 5s infinite;
+      }
+      @media screen and (max-width: 800px) {
+        nav {
+          background: linear-gradient(
+            10deg,
+            rgba(0, 255, 85, 0.3),
+            rgba(0, 200, 255, 0.3)
+          );
+          backdrop-filter: blur(3px);
+        }
+        .burger {
+          display: inline-block;
+          cursor: pointer;
+        }
+        .burger .bar1,
+        .bar2,
+        .bar3 {
+          width: 35px;
+          height: 5px;
+          background-color: rgb(246, 246, 246);
+          margin: 6px 0;
+          transition: 0.4s;
+        }
+        .change .bar1 {
+          transform: translate(0, 11px) rotate(-45deg);
+        }
+        .change .bar2 {
+          opacity: 0;
+        }
+        .change .bar3 {
+          transform: translate(0, -11px) rotate(45deg);
+        }
+
+        .right-nav {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          background-image: linear-gradient(
+            20deg,
+            rgb(0, 0, 255, 0.5),
+            rgb(255, 0, 0, 0.5)
+          );
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+        }
+        .right-nav a {
+          display: inline-block;
+          padding: 10px 10px;
+          width: 100%;
+          border-bottom: 1px solid;
+        }
+        .right-nav a:last-child {
+          border-bottom: none;
+        }
+        .right-nav a:hover {
+          background-color: unset;
+          border-radius: unset;
+          color: white;
+        }
+      }
+      @keyframes icons {
+        0% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+        50% {
+          background-image: var(--gradient);
+          background-position: 100% 0;
+        }
+        100% {
+          background-image: var(--gradient);
+          background-position: 0 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav>
+      <a href="../index.html" class="left-nav"
+        ><i
+          class="fa fa-home"
+          style="
+            font-size: 38px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            --gradient: linear-gradient(60deg, red, yellow, green, blue);
+            color: transparent;
+            background-size: 600%;
+          "
+        ></i
+      ></a>
+      <div class="burger" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div class="right-nav">
+        <a href="../index.html#pelayanan">Pelayanan</a>
+        <a href="../index.html#harga-penjualan">Harga</a>
+        <a href="../index.html#penjualan">Penjualan</a>
+        <a href="../index.html#tentang">Tentang</a>
+        <a href="../index.html#kontak">Kontak</a>
+      </div>
+    </nav>
+    <!-- nav -->
+
+    <!-- visa -->
+    <div class="wrapper" id="app">
+      <div class="card-form">
+        <div class="card-list">
+          <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
+            <div class="card-item__side -front">
+              <div
+                class="card-item__focus"
+                v-bind:class="{'-active' : focusElementStyle }"
+                v-bind:style="focusElementStyle"
+                ref="focusElement"
+              ></div>
+              <div class="card-item__cover">
+                <img
+                  v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                  class="card-item__bg"
+                />
+              </div>
+
+              <div class="card-item__wrapper">
+                <div class="card-item__top">
+                  <img
+                    src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
+                    class="card-item__chip"
+                  />
+                  <div class="card-item__type">
+                    <transition name="slide-fade-up">
+                      <img
+                        v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                        v-if="getCardType"
+                        v-bind:key="getCardType"
+                        alt=""
+                        class="card-item__typeImg"
+                      />
+                    </transition>
+                  </div>
+                </div>
+                <label
+                  for="cardNumber"
+                  class="card-item__number"
+                  ref="cardNumber"
+                >
+                  <template v-if="getCardType === 'amex'">
+                    <span v-for="(n, $index) in amexCardMask" :key="$index">
+                      <transition name="slide-fade-up">
+                        <div
+                          class="card-item__numberItem"
+                          v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''"
+                        >
+                          *
+                        </div>
+                        <div
+                          class="card-item__numberItem"
+                          :class="{ '-active' : n.trim() === '' }"
+                          :key="$index"
+                          v-else-if="cardNumber.length > $index"
+                        >
+                          {{cardNumber[$index]}}
+                        </div>
+                        <div
+                          class="card-item__numberItem"
+                          :class="{ '-active' : n.trim() === '' }"
+                          v-else
+                          :key="$index + 1"
+                        >
+                          {{n}}
+                        </div>
+                      </transition>
+                    </span>
+                  </template>
+
+                  <template v-else>
+                    <span v-for="(n, $index) in otherCardMask" :key="$index">
+                      <transition name="slide-fade-up">
+                        <div
+                          class="card-item__numberItem"
+                          v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''"
+                        >
+                          *
+                        </div>
+                        <div
+                          class="card-item__numberItem"
+                          :class="{ '-active' : n.trim() === '' }"
+                          :key="$index"
+                          v-else-if="cardNumber.length > $index"
+                        >
+                          {{cardNumber[$index]}}
+                        </div>
+                        <div
+                          class="card-item__numberItem"
+                          :class="{ '-active' : n.trim() === '' }"
+                          v-else
+                          :key="$index + 1"
+                        >
+                          {{n}}
+                        </div>
+                      </transition>
+                    </span>
+                  </template>
+                </label>
+                <div class="card-item__content">
+                  <label for="cardName" class="card-item__info" ref="cardName">
+                    <div class="card-item__holder">Card Holder</div>
+                    <transition name="slide-fade-up">
+                      <div
+                        class="card-item__name"
+                        v-if="cardName.length"
+                        key="1"
+                      >
+                        <transition-group name="slide-fade-right">
+                          <span
+                            class="card-item__nameItem"
+                            v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')"
+                            v-if="$index === $index"
+                            v-bind:key="$index + 1"
+                            >{{n}}</span
+                          >
+                        </transition-group>
+                      </div>
+                      <div class="card-item__name" v-else key="2">
+                        Full Name
+                      </div>
+                    </transition>
+                  </label>
+                  <div class="card-item__date" ref="cardDate">
+                    <label for="cardMonth" class="card-item__dateTitle"
+                      >Expires</label
+                    >
+                    <label for="cardMonth" class="card-item__dateItem">
+                      <transition name="slide-fade-up">
+                        <span v-if="cardMonth" v-bind:key="cardMonth"
+                          >{{cardMonth}}</span
+                        >
+                        <span v-else key="2">MM</span>
+                      </transition>
+                    </label>
+                    /
+                    <label for="cardYear" class="card-item__dateItem">
+                      <transition name="slide-fade-up">
+                        <span v-if="cardYear" v-bind:key="cardYear"
+                          >{{String(cardYear).slice(2,4)}}</span
+                        >
+                        <span v-else key="2">YY</span>
+                      </transition>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-item__side -back">
+              <div class="card-item__cover">
+                <img
+                  v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
+                  class="card-item__bg"
+                />
+              </div>
+              <div class="card-item__band"></div>
+              <div class="card-item__cvv">
+                <div class="card-item__cvvTitle">CVV</div>
+                <div class="card-item__cvvBand">
+                  <span v-for="(n, $index) in cardCvv" :key="$index"> * </span>
+                </div>
+                <div class="card-item__type">
+                  <img
+                    v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
+                    v-if="getCardType"
+                    class="card-item__typeImg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-form__inner">
+          <div class="card-input">
+            <label for="cardNumber" class="card-input__label"
+              >Card Number</label
+            >
+            <input
+              type="text"
+              id="cardNumber"
+              class="card-input__input"
+              v-mask="generateCardNumberMask"
+              v-model="cardNumber"
+              v-on:focus="focusInput"
+              v-on:blur="blurInput"
+              data-ref="cardNumber"
+              autocomplete="off"
+            />
+          </div>
+          <div class="card-input">
+            <label for="cardName" class="card-input__label">Card Holders</label>
+            <input
+              type="text"
+              id="cardName"
+              class="card-input__input"
+              v-model="cardName"
+              v-on:focus="focusInput"
+              v-on:blur="blurInput"
+              data-ref="cardName"
+              autocomplete="off"
+            />
+          </div>
+          <div class="card-form__row">
+            <div class="card-form__col">
+              <div class="card-form__group">
+                <label for="cardMonth" class="card-input__label"
+                  >Expiration Date</label
+                >
+                <select
+                  class="card-input__input -select"
+                  id="cardMonth"
+                  v-model="cardMonth"
+                  v-on:focus="focusInput"
+                  v-on:blur="blurInput"
+                  data-ref="cardDate"
+                >
+                  <option value="" disabled selected>Month</option>
+                  <option
+                    v-bind:value="n < 10 ? '0' + n : n"
+                    v-for="n in 12"
+                    v-bind:disabled="n < minCardMonth"
+                    v-bind:key="n"
+                  >
+                    {{n < 10 ? '0' + n : n}}
+                  </option>
+                </select>
+                <select
+                  class="card-input__input -select"
+                  id="cardYear"
+                  v-model="cardYear"
+                  v-on:focus="focusInput"
+                  v-on:blur="blurInput"
+                  data-ref="cardDate"
+                >
+                  <option value="" disabled selected>Year</option>
+                  <option
+                    v-bind:value="$index + minCardYear"
+                    v-for="(n, $index) in 12"
+                    v-bind:key="n"
+                  >
+                    {{$index + minCardYear}}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="card-form__col -cvv">
+              <div class="card-input">
+                <label for="cardCvv" class="card-input__label">CVV</label>
+                <input
+                  type="text"
+                  class="card-input__input"
+                  id="cardCvv"
+                  v-mask="'####'"
+                  maxlength="4"
+                  v-model="cardCvv"
+                  v-on:focus="flipCard(true)"
+                  v-on:blur="flipCard(false)"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="card-form__button"
+            onclick="alert('Submit Berhasil !')"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- visa -->
+
+    <script>
+      function myFunction(x) {
+        x.classList.toggle("change");
+      }
+      let acc = document.getElementsByClassName("burger");
+      for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          let panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
